@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TakutoElearning</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <head>
+        <title>TakutoElearning</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <%=render 'staticpages/header'%>
-    <div class="container">
-      <% if flash.any?%>
-        <% flash.each do |type, msg|%>
-          <div class="alert alert-<%= type%>">
-          <div><%= msg%></div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-    <%= yield %>
-  </body>
+    <body>
+        <%=render 'staticpages/header'%>
+            <% if flash.any?%>
+                <% flash.each do |type, msg|%>
+                <div class="alert alert-<%= type%>">
+                <div class="text-center"><%= msg%></div>
+                </div>
+                <% end %>
+            <% end %>
+        <%= yield %>
+    </body>
 </html>
