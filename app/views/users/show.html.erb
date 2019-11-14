@@ -12,6 +12,29 @@
             <div class="mt-5"><%= gravatar_for(@user, "show-gravatar")%></div>
             <div class="media-body user-name">
                 <h2> <%= @user.name%> </h2>
+                <% if current_user != @user %>
+                    <% unless current_user.following?(@user) %>
+                        <%= form_for(current_user.active_relationships.build) do |f| %>
+                        <div><%= hidden_field_tag :followed_id, @user.id%></div>
+                        <%= f.submit "Follow", class: "following-button btn btn-outline-dark"%>
+                        <% end %>
+                    <% else %>
+                        <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+                        html: {method: :delete}) do |f| %>
+                        <%= f.submit "Unfollow", class: "following-button btn btn-outline-danger"%>
+                        <% end %>
+                    <% end %>
+                <% end %>
+                <div class="row mt-3">
+                    <div class="following col-6">
+                        <p class="follow-text">following<p>
+                        <h3><%= @user.active_relationships.count %></h3>
+                        </div>
+                    <div class="follwers col-6">
+                        <p class="follow-text">followers<p>
+                        <h3><%= @user.passive_relationships.count %></h3>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
