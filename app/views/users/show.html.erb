@@ -9,7 +9,7 @@
     </div>
     <div class="row">
         <div class="personal col-3 text-center ">
-            <div class="mt-5"><%= gravatar_for @user %></div>
+            <div class="mt-5"><%= gravatar_for(@user, "show-gravatar")%></div>
             <div class="media-body user-name">
                 <h2> <%= @user.name%> </h2>
             </div>

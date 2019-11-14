@@ -4,10 +4,9 @@
         <% @users.each do |user| %>
             <div class="col-6 users-border">
                 <div class="media mb-3 mt-3">
-                    <%= gravatar_for(user) %>
+                    <%= gravatar_for(user, "index-gravatar") %>
                     <div class="media-body">
-                    <h3 class="pl-2 font-weight-bold"><%= link_to user.name, user %>
-                    </h3>
+                    <h5 class="pl-2 font-weight-bold"><%= link_to user.name, user %></h5>
                     </div>
                 </div>
             </div>
