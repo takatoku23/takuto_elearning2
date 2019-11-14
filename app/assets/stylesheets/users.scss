@@ -21,11 +21,13 @@
 }
 .following{
   display: inline-block;
-  float: left;
 }
 .followed{
   display: inline-block;
 }
 .follow-text{
   font-size: 25px;
+}
+.following-button{
+  width: 40%;
 }
