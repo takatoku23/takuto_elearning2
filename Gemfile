@@ -58,3 +58,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap4'
+
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
