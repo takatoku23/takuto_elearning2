@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_031529) do
+ActiveRecord::Schema.define(version: 2019_11_14_080552) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_11_14_031529) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
   end
 
 end
