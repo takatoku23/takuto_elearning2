@@ -1,0 +1,40 @@
+<div class ="container"> 
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <h1 class="text-center mt-3 mb-3">Users management</h1>
+            <table class="table table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Admin</th>
+                    </tr>
+                </thead>
+                <% @users.each do |user| %>
+                    <tbody>
+                        <tr>
+                            <td><%= user.name %></td>
+                            <td><%= user.email %></td>
+                            <%if user.admin %>
+                                <td> 
+                                    <%=link_to "Remove", admin_user_path(user), method: :delete, 
+                                    class: "btn btn-outline-danger float-right admin-manag",
+                                    data: {confirm: "Are you OK?"} %>
+                                </td>
+                            <%else%>
+                                <td>
+                                    <%=link_to "Add", admin_user_path(user), method: :patch, 
+                                    class: "btn btn-outline-success admin-manag",
+                                    data: {confirm: "Are you OK?"} %>
+                                </td>
+                            <% end %>
+                        </tr>
+                    </tbody>
+                <% end %>
+            </table>
+            <div class="paginate text-center info">
+                <%= will_paginate%>
+            </div>
+        </div>
+    </div>
+</div>
