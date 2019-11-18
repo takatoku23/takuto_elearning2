@@ -12,7 +12,6 @@ User.create!(
   password: "password",
   admin: true
 )
-
 50.times do |n|
   User.create!(
     name: Faker::Name.name,
