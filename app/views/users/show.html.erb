@@ -25,20 +25,20 @@
                         <% end %>
                     <% end %>
                 <% end %>
-                    <div class="row mt-3">
-                        <div class="following col-6">
-                            <p class="follow-text">following<p>
-                            <h3><%= @user.active_relationships.count %></h3>
-                        </div>
-                        <div class="follwers col-6">
-                            <p class="follow-text">followers<p>
-                            <h3><%= @user.passive_relationships.count %></h3>
-                        </div>
-                    </div>
-                <%if current_user == @user%>
                 <div class="row mt-3">
-                    <%= link_to "Setting", edit_user_path, class:"btn btn-outline-dark mx-auto admin-btn"%>
+                    <div class="following col-6">
+                        <p class="follow-text">following<p>
+                        <h3><%= @user.active_relationships.count %></h3>
+                    </div>
+                    <div class="follwers col-6">
+                        <p class="follow-text">followers<p>
+                        <h3><%= @user.passive_relationships.count %></h3>
+                    </div>
                 </div>
+                <%if current_user == @user%>
+                    <div class="row mt-3">
+                        <%= link_to "Setting", edit_user_path, class:"btn btn-outline-dark mx-auto admin-btn"%>
+                    </div>
                 <% end %>
                 <%if current_user.admin && current_user == @user%>
                     <div class="row mt-3">
