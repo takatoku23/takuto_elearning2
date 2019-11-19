@@ -20,10 +20,10 @@
                             <td><%= category.title %></td>
                             <td><%= category.description %></td>
                             <td> 
-                                <%=link_to "Remove", "#", 
-                                class: "text-white edit-word"%>
+                                <%=link_to "Remove", admin_category_path(category),method: :delete, class: "text-white edit-word",
+                                data: {confirm: "Are you sure to delete this category?"}%>
                                 <p class="slash">/</p>
-                                <%=link_to "edit", "#",class: "text-white edit-word"%>
+                                <%=link_to "edit", edit_admin_category_path(category), class: "text-white edit-word"%>
                             </td>
                         </tr>
                     </tbody>
