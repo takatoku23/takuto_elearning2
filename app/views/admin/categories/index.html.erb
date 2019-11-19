@@ -1,0 +1,33 @@
+<div class ="container"> 
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <h1 class="text-center mt-3 mb-3">Users management</h1>
+            <table class="table table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th class="text-center">Title</th>
+                        <th class="text-center">Description</th>
+                        <th class="text-center">Edit</th>
+                    </tr>
+                </thead>
+                <% @categories.each do |category| %>
+                    <tbody>
+                        <tr>
+                            <td><%= category.title %></td>
+                            <td><%= category.description %></td>
+                            <td> 
+                                <%=link_to "Remove", "#", 
+                                class: "text-white edit-word"%>
+                                <p class="slash">/</p>
+                                <%=link_to "edit", "#",class: "text-white edit-word"%>
+                            </td>
+                        </tr>
+                    </tbody>
+                <% end %>
+            </table>
+            <div class="paginate text-center info">
+                <%= will_paginate%>
+            </div>
+        </div>
+    </div>
+</div>
