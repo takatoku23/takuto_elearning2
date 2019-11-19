@@ -18,4 +18,8 @@ User.create!(
     email: Faker::Internet.unique.email,
     password: "password"
   )
+Category.create!(
+  title: "fruit",
+  description: "you should answer collect word"
+)
 end
