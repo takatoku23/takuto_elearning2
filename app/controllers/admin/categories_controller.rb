@@ -27,7 +27,6 @@ class Admin::CategoriesController < ApplicationController
       flash[:success] = 'Category updated'
       redirect_to admin_categories_path
     else
-      flash.now[:danger] = 'Category notupdated'
       render 'edit'
     end   
   end
