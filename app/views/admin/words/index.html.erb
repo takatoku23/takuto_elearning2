@@ -1,0 +1,34 @@
+<div class ="container"> 
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <h1 class="text-center mt-3 mb-3">Words management</h1>
+            <div class="new-category text-center">
+                <%=link_to "Create new word",  new_admin_category_word_path, 
+                class: "btn btn-success mb-3 new-category-btn"%>
+            </div>
+            <table class="table table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th class="text-center">Word</th>
+                        <th class="text-center">Answer</th>
+                        <th class="text-center">Edit</th>
+                    </tr>
+                </thead>
+                <% @words.each do |word| %>
+                    <tbody>
+                        <tr>
+                            <td><%= word.content %></td>
+                            <td>Answer create not yet</td>
+                            <td> 
+                                <%=link_to "Remove", "#", class: "text-white edit-word",
+                                data: {confirm: "Are you sure to delete this category?"}%>
+                                <p class="slash">/</p>
+                                <%=link_to "edit", "#", class: "text-white edit-word"%>
+                            </td>
+                        </tr>
+                    </tbody>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<%= form_for [:admin, @word] do |f| %>
+<%= render "shared/error_messages", object: f.object%>
+<div class="form-group">
+    <%= f.label :word%>
+    <%= f.text_field :content, class: 'form-control' %>
+</div>
+<%= f.submit btn_msg, class: 'btn btn-outline-dark btn-block'%>
+<% end %>
