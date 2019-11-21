@@ -6,7 +6,7 @@ class Word < ApplicationRecord
   validate :count_choices
 
   def count_choices
-    count = choices.collect { |takuyaki| takuyaki.isCorrect }.count(true)
+    count = choices.collect { |choice| choice.isCorrect }.count(true)
     if (count == 0)
       errors.add(:choice, "You should check at lease one box")
     elsif(count > 1)
