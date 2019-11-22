@@ -1,0 +1,30 @@
+<div class="container">
+    <h1 class="text-center mb-3 mt-3">Lessons</h1>
+    <div class="lesson-conditon text-center mt-3">
+        <%= link_to( "All", "#", class: "mx-auto lesson-head btn btn-outline-dark")%>
+        <%= link_to( "Learned", "#", class: "mx-auto lesson-head btn btn-outline-dark")%>
+        <%= link_to( "Not learned", "#", class: "mx-auto lesson-head btn btn-outline-dark")%>
+    </div>
+    <div class="row">
+        <% @categories.each do |category| %>
+            <div class="col-6">
+                <div class="media mb-3 mt-3">
+                    <div class="media-body">
+                        <div class="rounded text-center">
+                            <div class="card text-white bg-color mx-auto mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= category.title%></h5>
+                                    <p class="card-text"><%= category.description%></p>
+                                    <%=link_to "check result", "#", class: "btn btn-outline-success mt-5"%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="paginate text-center">
+        <%= will_paginate%>
+    </div>
+</div>
