@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :lessons, dependent: :destroy
+  has_many :categories, through: :lessons
   before_save { email.downcase! }
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -36,5 +38,9 @@ class User < ApplicationRecord
   ##Returns true if the current user is following the other user
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def lesson_taken(cat_id)
+    lesson = lessons.find_by(category_id: cat_id)
   end
 end

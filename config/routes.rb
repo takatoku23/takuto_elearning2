@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'
   delete '/logout', to:'sessions#destroy'
+
   namespace:admin do
     get '/home', to: 'users#home'
     resources :users
@@ -10,6 +11,11 @@ Rails.application.routes.draw do
       resources :words
     end
   end
+
+  resources :lessons do
+    resources :answers
+  end
+
   resources :categories
   resources :users
   resources :relationships, only: [:create, :destroy]
