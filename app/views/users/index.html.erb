@@ -2,11 +2,11 @@
     <h1 class="text-center mb-3 mt-3">Users</h1>
     <div class="row">
         <% @users.each do |user| %>
-            <div class="col-6 users-border">
+            <div class="col-5 users-border">
                 <div class="media mb-3 mt-3">
                     <%= gravatar_for(user, "index-gravatar") %>
                     <div class="media-body">
-                    <h5 class="pl-3 font-weight-bold mt-4 users-name"><%= link_to user.name, user %></h5>
+                    <h5 class="pl-3 font-weight-bold"><%= link_to user.name, user, class: "user-name1" %></h5>
                     </div>
                 </div>
             </div>

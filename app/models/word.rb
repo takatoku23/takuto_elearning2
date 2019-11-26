@@ -23,6 +23,6 @@ class Word < ApplicationRecord
   end
   
   def correct_answer
-    choices.find_by(isCorrect:true).content
+    choices.find_by(isCorrect:true).try(:content)
   end
 end

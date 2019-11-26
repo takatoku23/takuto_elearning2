@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <% @categories.each do |category| %>
-            <div class="col-6">
+            <div class="col-4 mt-5">
                 <div class="media mb-3 mt-3">
                     <div class="media-body">
                         <div class="rounded text-center">
@@ -15,7 +15,12 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><%= category.title%></h5>
                                     <p class="card-text"><%= category.description%></p>
-                                    <%=link_to "Learn", "#", class: "btn btn-outline-success mt-5"%>
+                                    <% lesson = current_user.lesson_taken(category.id)%>
+                                    <% if lesson.nil?%>
+                                        <%=link_to "start lesson", lessons_path(category_id: category.id), method: :post, class: "btn btn-outline-success mt-5"%>
+                                    <% else%>
+                                        <%=link_to "show result", "#", class: "btn btn-outline-danger mt-5"%>
+                                    <% end %>
                                 </div>
                             </div>
                         </div>
