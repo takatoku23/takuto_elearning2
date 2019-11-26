@@ -7,11 +7,11 @@
     </div>
     <div class="row">
         <% @categories.each do |category| %>
-            <div class="col-4 mt-5">
-                <div class="media mb-3 mt-3">
+            <div class="col-4">
+                <div class="media">
                     <div class="media-body">
                         <div class="rounded text-center">
-                            <div class="card text-white bg-color mx-auto mb-3" style="max-width: 18rem;">
+                            <div class="card text-dark bg-color mx-auto mb-3 box1">
                                 <div class="card-body">
                                     <div class="card-head">
                                         <h3 class="card-title text-left"><%= category.title%></h3>
@@ -20,9 +20,9 @@
                                     <h5 class="text-right"><%= category.words.count%> words</h5>
                                     <% lesson = current_user.lesson_taken(category.id)%>
                                     <% if lesson.nil?%>
-                                        <%=link_to "start lesson", lessons_path(category_id: category.id), method: :post, class: "btn btn-outline-success mt-5"%>
+                                        <%=link_to "start lesson", lessons_path(category_id: category.id), method: :post, class: "btnn-stitch2 btn mt-5 float-right"%>
                                     <% else%>
-                                        <%=link_to "show result", "#", class: "btn btn-outline-danger mt-5"%>
+                                        <%=link_to "show result", "#", class: "mt-5 float-right btnn-stitch1 btn"%>
                                     <% end %>
                                 </div>
                             </div>
