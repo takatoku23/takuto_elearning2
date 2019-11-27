@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
+    @activities = @user.activities.paginate(page: params[:page],per_page: 10)
   end
   def profile
     @user = User.find(current_user.id)
