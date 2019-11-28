@@ -9,6 +9,6 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:id])
-    @answers = @lesson.answers
+    @answers = @lesson.answers.paginate(page: params[:page],per_page: 5)
   end
 end
