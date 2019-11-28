@@ -13,8 +13,7 @@
             <div class="media-body user-name">
                 <h2> <%= current_user.name%> </h2>
                     <div class="row mt-3">
-                        <h5 class="mx-auto">Learn Categories: 0</h5>
-                        <h5 class="mx-auto">Learn Words: 0</h5>
+                        <h5 class="mx-auto"><%= link_to "Learned Words #{current_user.answers.count}", words_path(current_user),class: "btn-open"%></h5>
                     </div>
             </div>
         </div>

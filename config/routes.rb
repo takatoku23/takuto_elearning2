@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :answers
   end
 
+  resources :words, only: [:index]
   resources :categories
   resources :users
   resources :relationships, only: [:create, :destroy]
