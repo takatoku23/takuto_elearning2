@@ -11,11 +11,11 @@
                 </div>
                 <div class="media-body ml-3 mt-2">
                     <div class="feed-contents">
-                        <%= link_to_if activity.user == current_user, "You", user_path(current_user) do 
-                            link_to activity.user.name, user_path(activity.user.id) end %> learned
+                        <%= link_to_if activity.user == current_user, "You", user_path(current_user),class: "color-feed" do 
+                            link_to activity.user.name, user_path(activity.user.id),class: "color-feed" end %> learned
                             <%= activity.action.lesson_results %> of
                             <%= activity.action.words.size%> in
-                            <%= link_to activity.action.category.title, lesson_path(activity.action.id)%>
+                            <%= link_to activity.action.category.title, lesson_path(activity.action.id),class: "color-feed"%>
                         <div>
                     </div>
                         <small><%= time_ago_in_words(activity.created_at)%></small>
@@ -33,9 +33,9 @@
                 </div>
                 <div class="media-body ml-3 mt-2">
                     <div class="feed-contents">
-                        <%= link_to_if activity.user == current_user, "You", user_path(current_user) do
-                            link_to activity.user.name, user_path(activity.user.id) end %> followed
-                        <%= link_to activity.action.followed.name, activity.action.followed%>
+                        <%= link_to_if activity.user == current_user, "You", user_path(current_user),class: "color-feed" do
+                            link_to activity.user.name, user_path(activity.user.id),class: "color-feed" end %> followed
+                        <%= link_to activity.action.followed.name, activity.action.followed,class: "color-feed" %>
                     <div>
                         <small><%= time_ago_in_words(activity.created_at)%></small>
                     </div>
