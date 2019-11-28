@@ -6,4 +6,9 @@ class LessonsController < ApplicationController
       redirect_to new_lesson_answer_url(@lesson.id)
     end
   end
+
+  def show
+    @lesson = Lesson.find(params[:id])
+    @answers = @lesson.answers.paginate(page: params[:page],per_page: 5)
+  end
 end

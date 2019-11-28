@@ -22,7 +22,7 @@
                                     <% if lesson.nil?%>
                                         <%=link_to "start lesson", lessons_path(category_id: category.id), method: :post, class: "btnn-stitch2 btn mt-5 float-right"%>
                                     <% else%>
-                                        <%=link_to "show result", "#", class: "mt-5 float-right btnn-stitch1 btn"%>
+                                        <%=link_to "show result", lesson_path(lesson), class: "mt-5 float-right btnn-stitch1 btn"%>
                                     <% end %>
                                 </div>
                             </div>

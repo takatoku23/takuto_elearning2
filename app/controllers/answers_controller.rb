@@ -6,8 +6,7 @@ class AnswersController < ApplicationController
 
     if @lesson.next_word.nil?
       @lesson.update(total_score: @lesson.lesson_results)
-      @lesson.create_activity(user: current_user)
-      redirect_to root_url
+      redirect_to lesson_url(@lesson)
     end
   end
 

@@ -63,3 +63,5 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap4'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+gem 'font-awesome-rails'
