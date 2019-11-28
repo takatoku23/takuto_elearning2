@@ -1,0 +1,52 @@
+<% if @activities.any? %>
+    <% @activities.each do |activity| %>
+        <% if activity.action_type == "Lesson" %>
+            <div class="media mt-3">
+                <div class="media-left media-meddle">
+                    <% if activity.user == current_user%>
+                        <%= gravatar_for(current_user, "gravatar-activity")%>
+                    <% else %>
+                        <%= gravatar_for(activity.user, "gravatar-activity")%>
+                    <% end %>
+                </div>
+                <div class="media-body ml-3 mt-2">
+                    <div class="feed-contents">
+                        <%= link_to_if activity.user == current_user, "You", user_path(current_user) do 
+                            link_to activity.user.name, user_path(activity.user.id) end %> learned
+                            <%= activity.action.lesson_results %> of
+                            <%= activity.action.words.size%> in
+                            <%= link_to activity.action.category.title, "#"%>
+                        <div>
+                    </div>
+                        <small><%= time_ago_in_words(activity.created_at)%></small>
+                    </div>
+                </div>
+            </div>
+        <% else %>
+            <div class="media mt-3">
+                <div class="media-left media-middle">
+                    <% if activity.user == current_user%>
+                        <div><%= gravatar_for(current_user, "gravatar-activity")%></div>
+                    <% else %>
+                        <div><%= gravatar_for(activity.user, "gravatar-activity")%></div>
+                    <% end %>
+                </div>
+                <div class="media-body ml-3 mt-2">
+                    <div class="feed-contents">
+                        <%= link_to_if activity.user == current_user, "You", user_path(current_user) do
+                            link_to activity.user.name, user_path(activity.user.id) end %> followed
+                        <%= link_to activity.action.followed.name, activity.action.followed%>
+                    <div>
+                        <small><%= time_ago_in_words(activity.created_at)%></small>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+    <div class="paginate text-center info">
+        <%= will_paginate @activities%>
+    </div>
+<% else %>
+    <h3 class="text-muted text-center">Nothing to show</h3>
+<% end %>
