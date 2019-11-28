@@ -15,7 +15,7 @@
                             link_to activity.user.name, user_path(activity.user.id) end %> learned
                             <%= activity.action.lesson_results %> of
                             <%= activity.action.words.size%> in
-                            <%= link_to activity.action.category.title, "#"%>
+                            <%= link_to activity.action.category.title, lesson_path(activity.action.id)%>
                         <div>
                     </div>
                         <small><%= time_ago_in_words(activity.created_at)%></small>
