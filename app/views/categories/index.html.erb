@@ -1,9 +1,9 @@
 <div class="container">
     <h1 class="text-center mb-3 mt-3">Lessons</h1>
     <div class="lesson-conditon text-center mt-3">
-        <%= link_to( "All", "#", class: "mx-auto lesson-head btn btn-outline-dark")%>
-        <%= link_to( "Learned", "#", class: "mx-auto lesson-head btn btn-outline-dark")%>
-        <%= link_to( "Not learned", "#", class: "mx-auto lesson-head btn btn-outline-dark")%>
+        <%= link_to( "All", categories_path, class: "mx-auto lesson-head btn btn-outline-dark")%>
+        <%= link_to( "Learned", categories_path(status: "1"), class: "mx-auto lesson-head btn btn-outline-dark")%>
+        <%= link_to( "Not learned", categories_path(status: "0"), class: "mx-auto lesson-head btn btn-outline-dark")%>
     </div>
     <div class="row">
         <% @categories.each do |category| %>
