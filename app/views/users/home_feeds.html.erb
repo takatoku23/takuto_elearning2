@@ -12,9 +12,19 @@
             <div class="mt-5"><%= gravatar_for(current_user, "show-gravatar")%></div>
             <div class="media-body user-name">
                 <h2> <%= current_user.name%> </h2>
-                    <div class="row mt-5">
-                        <h5 class="mx-auto"><%= link_to "Learned Words #{current_user.answers.count}", words_path(current_user),class: "btn-open"%></h5>
+                <div class="row mt-3">
+                    <div class="following col-6">
+                        <p class="follow-text">following<p>
+                        <h3><%= current_user.active_relationships.count %></h3>
                     </div>
+                    <div class="follwers col-6">
+                        <p class="follow-text">followers<p>
+                        <h3><%= current_user.passive_relationships.count %></h3>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <h5 class="mx-auto"><%= link_to "Learned Words #{current_user.answers.count}", words_path(current_user),class: "btn-open"%></h5>
+                </div>
             </div>
         </div>
         <div class="col-9">
